@@ -2,17 +2,17 @@ import { FetchUrl } from "./fetchurl";
 
 export async function EpisodeLocation(infochar) {
   let arr = [];
-  let result = await FetchUrl(`https://rickandmortyapi.com/api/episode`);
-  arr = JoinArray( result, infochar);
-  while(result.info.next) {
-    result = await FetchUrl(result.info.next);
-    arr = arr.concat(JoinArray( result, infochar));
+  let response = await FetchUrl(`https://rickandmortyapi.com/api/episode`);
+  arr = JoinArray( response, infochar);
+  while(response.info.next) {
+    response = await FetchUrl(response.info.next);
+    arr = arr.concat(JoinArray( response, infochar));
   }
   return arr;
 }
 
-function JoinArray( result, infochar){
-  return result.results.reduce((acc, cur) => {
+function JoinArray( response, infochar){
+  return response.results.reduce((acc, cur) => {
       let locations = cur.characters.map(char => infochar[char.split("/").pop() - 1].origin.name);
       locations = [...new Set(locations)];
       return acc.concat(GenerateHash(cur.name, cur.episode, locations));

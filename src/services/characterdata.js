@@ -2,11 +2,11 @@ import { FetchUrl } from "./fetchurl";
 
 export async function CharactersData() {
   let arr = [];
-  let result = await FetchUrl(`https://rickandmortyapi.com/api/character`)
-  arr = result.results;
-  while(result.info.next) {
-    result = await FetchUrl(result.info.next);
-    arr = arr.concat(result.results);
+  let response = await FetchUrl(`https://rickandmortyapi.com/api/character`)
+  arr = response.results;
+  while(response.info.next) {
+    response = await FetchUrl(response.info.next);
+    arr = arr.concat(response.results);
   }
   return arr;
 }
