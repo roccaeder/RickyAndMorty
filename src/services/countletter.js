@@ -1,8 +1,4 @@
-export function fetchurl(url) {
-  return fetch(url)
-    .then(response => response.json())
-    .then(data => data)
-}
+import { FetchUrl } from "./fetchurl";
 
 function countletter(cadena, letter) {
   var indices = [];
@@ -14,12 +10,12 @@ function countletter(cadena, letter) {
 
 export async function searchletter(section, search) {
   let cont = 0;
-  let result = await fetchurl(`https://rickandmortyapi.com/api/${section}/?name=${search}`)
+  let result = await FetchUrl(`https://rickandmortyapi.com/api/${section}/?name=${search}`)
   cont += result.results.reduce((acc, cur) => {
     return acc + countletter(cur.name, search);
   }, 0);
   while(result.info.next) {
-    result = await fetchurl(result.info.next);
+    result = await FetchUrl(result.info.next);
     cont += result.results.reduce((acc, cur) => {
       return acc + countletter(cur.name, search);
     }, 0)
