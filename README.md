@@ -12,6 +12,10 @@
 ░▀░▀░▀▀▀░▀▀▀░▀░▀░░░▀░▀░▀░▀░▀▀░░░░▀░▀░▀▀▀░▀░▀░░▀░░░▀░░░░▀▀▀░▀░▀░▀░▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀
 ```
 
+This project is based in api [Api Rick And Morty](https://rickandmortyapi.com/)
+- Show number of letters in the names of sections(location, episodes, characters)
+- Concatenate locations with each episode
+
 ## Starting
 
 First Clone the repository.
