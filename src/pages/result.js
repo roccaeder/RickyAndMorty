@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { CharactersData } from "../services/characterdata";
-import { searchletter } from "../services/countletter";
-import { EpisodeLocation } from "../services/episodelocation";
+import { CharactersData } from "../services/CharacterData";
+import { searchletter } from "../services/CountLetter";
+import { EpisodeLocation } from "../services/EpisodeLocation";
 
 export const Result = () => {
 
@@ -9,22 +9,8 @@ export const Result = () => {
   const [letterE, SetLetterE] = useState(0);
   const [letterC, SetLetterC] = useState(0);
   const [locations, SetLocations] = useState([]);
-  const [delay1, SetDelay1] = useState(0);
-  const [delay2, SetDelay2] = useState(0);
-
-
-  // async function SolutionAll() {
-  //   let t0 = performance.now();
-  //   const data = await CharactersData();
-  //   const info = await EpisodeLocation(data);
-  //   SetLocations(info);
-  //   let t1 = performance.now();
-  //   console.log("the function delay " + (t1 - t0) + " miliseconds.");
-  //   return info;
-  // }
-
-  // SolutionAll().then(data => console.log(data));
-
+  const [delay1, SetDelay1] = useState("");
+  const [delay2, SetDelay2] = useState("");
 
   useEffect(() => {
 
@@ -34,7 +20,8 @@ export const Result = () => {
       const info = await EpisodeLocation(data);
       SetLocations(info);
       let t1 = performance.now();
-      SetDelay2(t1 - t0);
+      let difTime = t1 - t0;
+      SetDelay2(difTime >= 1000 ? `${Math.floor(difTime/1000)}s ${difTime%1000}ms` : `${difTime}ms`);
       return info;
     }
 
@@ -45,7 +32,10 @@ export const Result = () => {
           searchletter("location", "l").then((data) => SetLetterL(data)),
           searchletter("episode", "e").then((data) => SetLetterE(data)),
           searchletter("character", "c").then((data) => SetLetterC(data))
-      ]).then(() => SetDelay1(performance.now() - t0));
+      ]).then(() => {
+        let difTime = performance.now() - t0;
+        SetDelay1(difTime >= 1000 ? `${Math.floor(difTime/1000)}s ${difTime%1000}ms` : `${difTime}ms`)
+      });
 
   }, []);
   
@@ -54,7 +44,7 @@ export const Result = () => {
       {JSON.stringify([
         {
           exercise_name: "Char counter",
-          time: delay1 >= 1000 ? `${Math.floor(delay1/1000)}s ${delay1%1000}ms` : `${delay1}ms`,
+          time: delay1,
           in_time: true,
           results: [
             {
@@ -76,7 +66,7 @@ export const Result = () => {
         },
         {
           exercise_name: "Episode locations",
-          time: delay2 >= 1000 ? `${Math.floor(delay2/1000)}s ${delay2%1000}ms` : `${delay2}ms`,
+          time: delay2,
           in_time: true,
           results: locations,
         },

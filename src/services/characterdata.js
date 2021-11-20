@@ -1,4 +1,4 @@
-import { FetchUrl } from "./fetchurl";
+import { FetchUrl } from "./FetchUrl";
 
 export async function CharactersData() {
   let arr = [];

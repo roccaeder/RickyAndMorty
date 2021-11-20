@@ -1,4 +1,4 @@
-import { FetchUrl } from "./fetchurl";
+import { FetchUrl } from "./FetchUrl";
 
 export async function EpisodeLocation(infochar) {
   let arr = [];
@@ -11,7 +11,7 @@ export async function EpisodeLocation(infochar) {
   return arr;
 }
 
-function JoinArray( response, infochar){
+export function JoinArray( response, infochar){
   return response.results.reduce((acc, cur) => {
       let locations = cur.characters.map(char => infochar[char.split("/").pop() - 1].origin.name);
       locations = [...new Set(locations)];
@@ -19,7 +19,7 @@ function JoinArray( response, infochar){
     }, []);
 }
 
-function GenerateHash( name, episode, locations ) {
+export function GenerateHash( name, episode, locations ) {
   return {
     "name": name,
     "episode": episode,

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Styled Title renders correctly 1`] = `
+<pre>
+  [{"exercise_name":"Char counter","time":"","in_time":true,"results":[{"char":"l","count":0,"resource":"location"},{"char":"e","count":0,"resource":"episode"},{"char":"c","count":0,"resource":"character"}]},{"exercise_name":"Episode locations","time":"","in_time":true,"results":[]}]
+</pre>
+`;
