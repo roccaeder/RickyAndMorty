@@ -14,7 +14,10 @@
 
 ## Starting
 
-Firt
+First Clone the repository.
+
+## `git clone git@github.com:roccaeder/RickyAndMorty.git .`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
