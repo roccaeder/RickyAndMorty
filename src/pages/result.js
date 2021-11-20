@@ -54,7 +54,7 @@ export const Result = () => {
       {JSON.stringify([
         {
           exercise_name: "Char counter",
-          time: `${delay1}ms`,
+          time: delay1 >= 1000 ? `${Math.floor(delay1/1000)}s ${delay1%1000}ms` : `${delay1}ms`,
           in_time: true,
           results: [
             {
@@ -76,7 +76,7 @@ export const Result = () => {
         },
         {
           exercise_name: "Episode locations",
-          time: `${delay2}ms`,
+          time: delay2 >= 1000 ? `${Math.floor(delay2/1000)}s ${delay2%1000}ms` : `${delay2}ms`,
           in_time: true,
           results: locations,
         },
