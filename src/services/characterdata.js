@@ -8,6 +8,5 @@ export async function CharactersData() {
     result = await FetchUrl(result.info.next);
     arr = arr.concat(result.results);
   }
-  // sessionStorage.setItem("characters", JSON.stringify(arr));
   return arr;
 }
