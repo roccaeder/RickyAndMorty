@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { CharactersData } from "../services/CharacterData";
-import { searchletter } from "../services/CountLetter";
-import { EpisodeLocation } from "../services/EpisodeLocation";
+import { CharactersData } from "../services/characterdata";
+import { searchletter } from "../services/countletter";
+import { EpisodeLocation } from "../services/episodelocation";
 
 export const Result = () => {
 

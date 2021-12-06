@@ -1,4 +1,4 @@
-import { FetchUrl } from "./FetchUrl";
+import { FetchUrl } from "./fetchurl";
 
 export async function EpisodeLocation(infochar) {
   let arr = [];
